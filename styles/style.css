@@ -59,7 +59,7 @@ footer .copyright {
     background-color: #faf721;
 }
 
-.menu-bar .nav-buttons button[class="disabled"] {
+.menu-bar .nav-buttons button[class~="disabled"] {
   pointer-events: none;
   cursor: default;
   text-decoration: none;
@@ -78,11 +78,17 @@ footer .copyright {
 
 /* Questions */
 
-.dialog-box, .answer-list li, .menu-bar, .nav-button {
+.dialog-box, .answer-list li, .menu-bar, .other-starters {
     color: white;
     background-color: #212421;
     border-color: #00cc00;
     border-style: solid;
+}
+main [gender="male"] {
+    border-color: #4d63ff;
+}
+main [gender="female"] {
+    border-color: #ff79da;
 }
 
 .dialog-box {
@@ -131,7 +137,7 @@ footer .copyright {
     user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 
-.answer-list li[class="selected"] {
+.answer-list li[class~="selected"] {
     background-color: gray;
 }
 
@@ -157,10 +163,6 @@ footer .copyright {
     text-align: center;
     align-items: center;
 
-    color: white;
-    background-color: #212421;
-    border-color: #00cc00;
-    border-style: solid;
     border-width: 0.1em;
     border-radius: 0.25em;
 }

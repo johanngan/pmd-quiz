@@ -121,3 +121,18 @@ function clearResults() {
         results[i].parentNode.removeChild(results[i]);
     }
 }
+
+// Sets the gender of relevant elements
+function setGender(gender) {
+    var colorables = document.querySelectorAll('.colorable');
+    for(let i = 0; i < colorables.length; i++) {
+        colorables[i].setAttribute('gender', gender);
+    }
+}
+
+function unsetGender() {
+    var colorables = document.querySelectorAll('.colorable');
+    for(let i = 0; i < colorables.length; i++) {
+        colorables[i].removeAttribute('gender');
+    }
+}

@@ -90,6 +90,7 @@ window.onload = function() {
 // Reset answers of all the presenters and start from the beginning
 var restartQuiz = function() {
     clearResults();
+    unsetGender();
     takingQuiz = false;
 
     for(let i = 0; i < presenterList.length; i++) {
@@ -265,6 +266,15 @@ var performSetup = function() {
                 console.error('genderSelector.finalize: something went wrong with game selection.');
         }
 
+        switch(genderSelector.responses[0].textValue) {
+            case 'Male.':
+                setGender('male');
+                break;
+            case 'Female.':
+                setGender('female');
+                break;
+        }
+
         descriptionPresenter.clearQuestions();
         descriptionPresenter.addQuestionList(descriptions[natureScoreList[0].nature]);  // TODO: soft-code the game choice
         descriptionPresenter.startPresenting();
@@ -352,19 +362,23 @@ var performSetup = function() {
 
         // Show other possible starters of the chosen nature
         if(otherStarters.length > 0) {
+            var includedStarters = [pokemon];
+            var othersDisplay = document.createElement('div');
+            othersDisplay.classList.add('other-starters');
+            othersDisplay.classList.add('colorable');
+            othersDisplay.classList.add('result');
+
             let genderSymbol = '';
             if(possibleGenders.length === 1) {
                 if(genderChoice === 'Male') {
                     genderSymbol = ' (♂) ';
+                    othersDisplay.setAttribute('gender', 'male');
                 } else {
-                    genderSymbol = ' (♀) '
+                    genderSymbol = ' (♀) ';
+                    othersDisplay.setAttribute('gender', 'female');
                 }
             }
 
-            var includedStarters = [pokemon];
-            var othersDisplay = document.createElement('div');
-            othersDisplay.classList.add('other-starters');
-            othersDisplay.classList.add('result');
             othersDisplay.textContent = 'Other ' + natureScoreList[0].nature + ' starters' + genderSymbol + ': ';
 
             for(let i = 0; i < otherStarters.length; i++) {
