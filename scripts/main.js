@@ -358,6 +358,8 @@ var performSetup = function() {
 
         var pokemon = starters[natureScoreList[0].nature][genderChoice];
         var verdictStr = subsStr(descriptionPresenter.questions[descriptionPresenter.questions.length-1], pokemon);
+        // Hard-coded case for the rare tie resulting in PMD2 descriptions with an Eevee starter.
+        verdictStr = verdictStr.replace('a Eevee', 'an Eevee');
         descriptionPresenter.presentQuestion(verdictStr);
         disableArrows();
 
