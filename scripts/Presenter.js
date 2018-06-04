@@ -9,20 +9,21 @@ var navButtons = document.querySelector('.nav-buttons');
 var previousButton = document.querySelector('#previous');
 var nextButton = document.querySelector('#next');
 var restartButton = document.querySelector('#restart');
+var upButton = document.querySelector('#up');
 
 // Flag set to true during the main quiz
 var takingQuiz = false;
 
 // Helpers for modifying the answer list
 
-function addAnswer(answerText, id, clickHandler, selected=false) {
+function addAnswer(answerText, id, clickHandler, state=null) {
     var newAnswer = document.createElement('li');
     newAnswer.setAttribute('id', id);
     newAnswer.textContent = answerText;
     newAnswer.addEventListener('click', clickHandler);
 
-    if(selected) {
-        newAnswer.classList.add('selected');
+    if(state !== null) {
+        newAnswer.classList.add(state);
     }
     
     answerList.appendChild(newAnswer);
@@ -94,13 +95,28 @@ var disableArrows = function() {
 }
 
 var showRestart = function() {
+    var u = document.querySelector('#up');
     var r = document.querySelector('#restart');
     if(!r) {
-        navButtons.appendChild(restartButton);
+        if(!u) {
+            navButtons.appendChild(restartButton);
+        } else {
+            navButtons.insertBefore(restartButton, upButton);
+        }
     }
 }
 var hideRestart = function() {
     removeElement('#restart');
+}
+
+var showUp = function() {
+    var u = document.querySelector('#up');
+    if(!u) {
+        navButtons.appendChild(upButton);
+    }
+}
+var hideUp = function() {
+    removeElement('#up');
 }
 
 
@@ -207,6 +223,7 @@ function Presenter() {
 
     this.subQuestionLevel = 0;
     this.responses = [];        // List of answer objects corresponding to the response the user chose for each question
+    this.subQuestionResponses = [];
     this.unanswered = [];       // List of indices of the unanswered questions
     this.progressString = () => this.currentQuestion+1
         + (this.subQuestionLevel > 0 ? String.fromCharCode('a'.charCodeAt(0) + this.subQuestionLevel) : '')
@@ -219,6 +236,7 @@ Presenter.prototype.addQuestion = function(question) {
     Object.getPrototypeOf(Presenter.prototype).addQuestion.call(this, question);
 
     this.responses.push(null);
+    this.subQuestionResponses.push([]);
     this.unanswered.push(this.questions.length-1);
 }
 
@@ -226,11 +244,13 @@ Presenter.prototype.clearQuestions = function() {
     Object.getPrototypeOf(Presenter.prototype).clearQuestions.call(this);
 
     this.responses = [];
+    this.subQuestionResponses = [];
     this.unanswered = [];
 }
 
-Presenter.prototype.presentQuestionAtIndex = function(index) {
+Presenter.prototype.presentQuestionAtIndex = function(index, subQuestionLevel=0) {
     if(index !== null) {
+        this.subQuestionLevel = Math.min(subQuestionLevel, this.subQuestionResponses.length);
         this.currentQuestion = index;
         if(!this.cyclicPresentation) {
             if(this.currentQuestion <= 0) {
@@ -246,57 +266,89 @@ Presenter.prototype.presentQuestionAtIndex = function(index) {
             }
         }
 
-        setProgress(this.progressString());
-        this.presentQuestion(this.questions[index], this.responses[index]);
+        var question = this.questions[index];
+        var response = this.responses[index];
+        if(this.subQuestionResponses[index].length > 0) {
+            if(this.subQuestionLevel > 0) {
+                if(this.subQuestionResponses[index][this.subQuestionLevel-1].hasOwnProperty('subQuestion')) {
+                    question = this.subQuestionResponses[index][this.subQuestionLevel-1].subQuestion;
+                } else if(this.subQuestionLevel > 1) {
+                    question = this.subQuestionResponses[index][this.subQuestionLevel-2].subQuestion;
+                    this.subQuestionLevel--;
+                }
+            }
+
+            response = this.subQuestionResponses[index][this.subQuestionLevel];
+        }
+
+        this.presentQuestion(question, response, this.subQuestionLevel);
     } else {
         this.finalize();
     }
 }
 
 // Set up the pretty presentation and event handlers
-Presenter.prototype.presentQuestion = function(question, response=null) {
+Presenter.prototype.presentQuestion = function(question, response=null, subQuestionLevel=0) {
     activeQuestion.textContent = question.textValue;
     clearAnswers();
+    this.subQuestionLevel = subQuestionLevel;
+    setProgress(this.progressString());
+
+    if(subQuestionLevel > 0) {
+        showUp();
+    } else {
+        hideUp();
+    }
 
     var _this = this;
     for(let i = 0; i < question.answers.length; i++) {
-        // var handler;
-        // if(question.answers[i].hasOwnProperty('subQuestion')) {
-        //     handler = function(e) {
-        //         _this.subQuestionLevel++;
-        //         _this.presentQuestion(question.answers[i].subQuestion);
-        //     }
-        // } else {
-        //     handler = function(e) {
-        //         var responseID = Number(e.target.id);
-        //         console.log('Response: ' + responseID);
-        //         // 1. lock the list elements from further interaction??? TODO
-        //         // 2. record the answer
-        //         _this.responses[_this.currentQuestion] = _this.questions[_this.currentQuestion].answers[responseID];
-        //         // // 3. Perform custom handling -- UNNEEDED?
-        //         // question.handleResponse(e.target.id);
-        //         // 4. Set this question as answered
-        //         var unansweredIndex = _this.unanswered.indexOf(_this.currentQuestion);
-        //         if(unansweredIndex !== -1) {
-        //             _this.unanswered.splice(unansweredIndex, 1);
-        //         }
-        //         // 5. present the next question
-        //         _this.presentQuestionAtIndex(_this.nextUnansweredQuestion());
-        //     }
-        // }
-        let selected = false;
-        if(response !== null) {
-            if(response.textValue === question.answers[i].textValue) {
-                selected = true;
-            }
-        }
+        let handler;
+        if(question.answers[i].hasOwnProperty('subQuestion')) {
+            handler = function(e) {
+                var responseID = Number(e.target.id);
 
-        addAnswer(question.answers[i].textValue, i,
-            function(e) {
+                // If the old answer doesn't exist or doesn't match the new answer, remove everything from then on
+                // and add the new answer. If not, make no changes
+                if(_this.subQuestionResponses[_this.currentQuestion].length > subQuestionLevel &&
+                    _this.subQuestionResponses[_this.currentQuestion][subQuestionLevel].textValue !==
+                    question.answers[responseID].textValue) {
+                    _this.subQuestionResponses[_this.currentQuestion].splice(subQuestionLevel);
+                }
+                if(_this.subQuestionResponses[_this.currentQuestion].length <= subQuestionLevel) {
+                    _this.responses[_this.currentQuestion] = question.answers[responseID];
+                    _this.subQuestionResponses[_this.currentQuestion].push(question.answers[responseID]);
+
+                    // If the question is answered and something has changed, make it unanswered if the response is incomplete
+                    var unansweredIndex = _this.unanswered.indexOf(_this.currentQuestion);
+                    if(unansweredIndex === -1 && question.answers[responseID].hasOwnProperty('subQuestion')) {
+                        let nextIndex = _this.unanswered.findIndex(element => element > _this.currentQuestion);
+                        if(nextIndex === -1) {
+                            _this.unanswered.push(_this.currentQuestion);
+                        } else {
+                            _this.unanswered.splice(nextIndex, 0, _this.currentQuestion);
+                        }
+                    }
+                }
+                
+                var nextResponse = null;
+                if(_this.subQuestionResponses[_this.currentQuestion].length > subQuestionLevel+1) {
+                    nextResponse = _this.subQuestionResponses[_this.currentQuestion][subQuestionLevel+1];
+                }
+                _this.presentQuestion(question.answers[i].subQuestion, nextResponse, subQuestionLevel+1);
+            }
+        } else {
+            handler = function(e) {
                 var responseID = Number(e.target.id);
                 // 1. lock the list elements from further interaction??? TODO
                 // 2. record the answer
-                _this.responses[_this.currentQuestion] = _this.questions[_this.currentQuestion].answers[responseID];
+                _this.responses[_this.currentQuestion] = question.answers[responseID];
+                // Add to the subquestion answer list if in subquestion-land. If not, Make sure the list is empty.
+                if(subQuestionLevel > 0) {
+                    _this.subQuestionResponses[_this.currentQuestion].splice(subQuestionLevel);
+                    _this.subQuestionResponses[_this.currentQuestion].push(question.answers[responseID]);
+                } else {
+                    _this.subQuestionResponses[_this.currentQuestion] = [];
+                }
                 // // 3. Perform custom handling -- UNNEEDED?
                 // question.handleResponse(e.target.id);
                 // 4. Set this question as answered
@@ -306,9 +358,18 @@ Presenter.prototype.presentQuestion = function(question, response=null) {
                 }
                 // 5. present the next question
                 _this.presentQuestionAtIndex(_this.nextUnansweredQuestion());
-            },
-            selected
-        );
+            }
+        }
+        let state = null;
+        if(response !== null && response.textValue === question.answers[i].textValue) {
+            if(this.responses[this.currentQuestion].hasOwnProperty('subQuestion')) {
+                state = 'incomplete'
+            } else {
+                state = 'selected';
+            }
+        }
+
+        addAnswer(question.answers[i].textValue, i, handler, state);
     }
 }
 
@@ -335,10 +396,12 @@ Presenter.prototype.reset = function() {
 
     this.subQuestionLevel = 0;
     this.responses = [];
+    this.subQuestionResponses = [];
     this.unanswered = [];
 
     for(let i = 0; i < this.questions.length; i++) {
         this.responses.push(null);
+        this.subQuestionResponses.push([]);
         this.unanswered.push(i);
     }
 }

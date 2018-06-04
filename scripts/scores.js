@@ -29,6 +29,20 @@ function addTotalsToTally(scoreTally, toAdd) {
 function tallySingleResult(question, response, scoreTally) {
     let maxScoresForQuestion = {};
     for(let i = 0; i < question.answers.length; i++) {
+        // Recursive case
+        if(question.answers[i].hasOwnProperty('subQuestion')) {
+            let subTally = {};
+            tallySingleResult(question.answers[i].subQuestion, {'points': {}}, subTally);
+
+            for(let n in subTally) {
+                if(!maxScoresForQuestion.hasOwnProperty(n)) {
+                    maxScoresForQuestion[n] = new Score();
+                }
+                maxScoresForQuestion[n].totalPoints = Math.max(maxScoresForQuestion[n].totalPoints, subTally[n].totalPoints);
+            }
+        }
+
+        // Base case
         for(let n in question.answers[i].points) {
             if(!maxScoresForQuestion.hasOwnProperty(n)) {
                 maxScoresForQuestion[n] = new Score();

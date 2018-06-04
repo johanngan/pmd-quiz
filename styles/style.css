@@ -140,6 +140,9 @@ main [gender="female"] {
 .answer-list li[class~="selected"] {
     background-color: gray;
 }
+.answer-list li[class~="incomplete"] {
+    background-color: rgb(220, 200, 0);
+}
 
 .answer-list li:hover {
     border-color: #faf721;

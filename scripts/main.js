@@ -140,6 +140,10 @@ nextButton.addEventListener('click', function(e) {
     currentPresenter.presentQuestionAtIndex(currentPresenter.nextQuestion());
 });
 
+upButton.addEventListener('click', function(e) {
+    currentPresenter.presentQuestionAtIndex(currentPresenter.currentQuestion, Math.max(currentPresenter.subQuestionLevel-1, 0));
+});
+
 
 
 // Set up the presenters
@@ -149,7 +153,7 @@ var performSetup = function() {
     gameSelector.clearQuestions();
     gameSelector.progressString = () => initialSettingsBlurb;
     gameSelector.addQuestion(setupQuestions[0]);
-    gameSelector.setup = () => { hideArrows(); hideRestart(); showProgress(); };
+    gameSelector.setup = () => { hideArrows(); hideRestart(); hideUp(); showProgress(); };
     gameSelector.finalize = function() {
         // Set mainQuestions
         switch(gameSelector.responses[0].game) {
@@ -204,7 +208,7 @@ var performSetup = function() {
     }
 
     quizLengthSelector.progressString = () => initialSettingsBlurb;
-    quizLengthSelector.setup = () => { hideArrows(); showRestart(); showProgress(); };
+    quizLengthSelector.setup = () => { hideArrows(); showRestart(); hideUp(); showProgress(); };
     quizLengthSelector.finalize = function() {
         mainPresenter.clearQuestions();
 
@@ -228,6 +232,7 @@ var performSetup = function() {
         showArrows();
         enableArrows();
         showRestart();
+        hideUp();
         showProgress();
     }
     mainPresenter.finalize = function() {
@@ -236,7 +241,7 @@ var performSetup = function() {
 
     genderSelector.clearQuestions();
     genderSelector.addQuestionList(finalQuestions);
-    genderSelector.setup = () => { hideArrows(); showRestart(); hideProgress(); };
+    genderSelector.setup = () => { hideArrows(); showRestart(); hideUp(); hideProgress(); };
     genderSelector.finalize = function() {
         // Calculate scores by nature by game
         scoresByGame = tallyResults(mainPresenter.questions, mainPresenter.responses);
@@ -283,7 +288,7 @@ var performSetup = function() {
         // also add button prompting user to restart the quiz (different entity than restart button during quiz)
     }
 
-    descriptionPresenter.setup = () => { showArrows(); enableArrows(); showRestart(); hideProgress(); };
+    descriptionPresenter.setup = () => { showArrows(); enableArrows(); showRestart(); hideUp(); hideProgress(); };
     descriptionPresenter.finalize = function() {
         takingQuiz = false;
         var loadingString = 'Calculating results. Please wait...';
