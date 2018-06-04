@@ -1,0 +1,168 @@
+{
+    "Docile":
+    [
+        "You appear to be... The docile type.",
+        "You're very kindhearted. Very helpful. You can make friends with anyone.",
+        "You're a wonderful person.",
+        "......Is that going overboard? I don't think so.",
+        "You yourself should be the best judge of that.",
+        "A docile person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Hardy":
+    [
+        "You appear to be... The hardy type.",
+        "You do your homework diligently, and you know to eat properly.",
+        "You have a strong willpower that lets you complete tasks, however tough.",
+        "But you can also be stubborn to the point of even feuding with friends...",
+        "Nothing will go right for you when you're irritated, so learn to laugh it off.",
+        "A hardy person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Jolly":
+    [
+        "You appear to be... The jolly type.",
+        "Always laughing and smiling, you uplift everyone around you.",
+        "You love jokes!",
+        "You have lots of friends, and you're popular wherever you go.",
+        "But sometimes you get carried away and say things that get you in trouble.",
+        "You should learn to think before saying or doing anything.",
+        "A jolly person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Impish":
+    [
+        "You appear to be... The impish type.",
+        "You're playful, cheerful, and you love pranks.",
+        "You're also kindhearted.",
+        "That's why the people around you find you so irresistible.",
+        "You must be the most popular person around!",
+        "Oh? You're not that popular? You're either being modest...or you just don't notice it.",
+        "I bet people are just too shy to let their feelings be known.",
+        "There's someone out there who's afraid to declare their love for you!",
+        "An impish person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Quirky":
+    [
+        "You appear to be... The quirky type.",
+        "People consider you an eccentric who does things at your own pace.",
+        "You never break tempo.",
+        "Your carefree nature makes you attractive. But you also happen to be somewhat childish...",
+        "You are fickle and cause problems for the people who have to go along with you.",
+        "Maybe people are even upset with you for being so fickle?",
+        "If you realize how selfishly you're behaving, try to think before you do anything rash.",
+        "A quirky person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Relaxed":
+    [
+        "You appear to be... The relaxed type.",
+        "Do you occasionally zone out and miss a bus?",
+        "Or do you find yourself dozing off?",
+        "Or is your reaction time a little slower than others?",
+        "But that's not necessarily a bad thing.",
+        "You can do things at your own tempo without feeling pressured.",
+        "You can live in a relaxed and unhurried manner without worries.",
+        "I think that's a happy lifestyle to be envied, even.",
+        "You're also surprisingly popular.",
+        "The way you vacantly stare off into the distance...",
+        "It should make that someone special's pulse race.",
+        "A relaxed person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Brave":
+    [
+        "You appear to be... The brave type.",
+        "You have a strong sense of justice. You hate evil. You will take on any opponent.",
+        "You are truly a hero!",
+        "Go forth!",
+        "For justice... For peace on earth... Fight the forces of evil!",
+        "......If I'm wrong... Work at becoming a true hero!",
+        "A brave person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Lonely":
+    [
+        "You appear to be... The lonely type.",
+        "You always act cheerful and jocular around other people.",
+        "But that's only because you are with other people.",
+        "However, when you get alone...",
+        "Do you find yourself feeling oddly depressed?",
+        "That's why you always want to be with others.",
+        "But if you go around feeling depressed too much...",
+        "Your nutritional balance goes out of wack. Eat more vegetables!",
+        "However... It's not a bad thing to feel lonely.",
+        "You know what it's like when you aren't alone, so that's why you feel lonesome.",
+        "And that's why you aren't really alone.",
+        "A lonely person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Timid":
+    [
+        "You appear to be... The timid type.",
+        "You may find it hard to go to the washroom at night.",
+        "You may also find it too frightening to go back to school to get something you left behind in class.",
+        "If you're ever walking on a dark street at night, you probably turn around often to check behind you.",
+        "But your timid nature is also you good point!",
+        "Because those who know fear are those who know true courage.",
+        "A timid person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Naive":
+    [
+        "You appear to be... The naive type.",
+        "You are highly curious, and you love rare things.",
+        "Your cheerful and carefree attitude should make things fun for the people around you.",
+        "But you do have one flaw. You can be childish.",
+        "You can never sit still. You're always on the move.",
+        "You can also be selfish, so you should watch yourself.",
+        "A naive person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Sassy":
+    [
+        "You appear to be... The sassy type.",
+        "You tend to be somewhat cynical.",
+        "Despite that, there is something appealing and lovable about you.",
+        "But do you occasionally say something arrogant that angers others?",
+        "Do you make that mistake?",
+        "Or have people called you conceited, vain, or selfish?",
+        "Have people said that about you?",
+        "Huh? You're telling me to get lost?",
+        "Why, you... Come here and say that! ......Gasp!",
+        "...I'm sorry. I let my feelings run away. I truly regret this, really.",
+        "Anyway, your cool and aloof attitude is what defines you.",
+        "It makes you exasperating and appealing at the same time.",
+        "A sassy person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Hasty":
+    [
+        "You appear to be... The hasty type.",
+        "You like to take charge and get things done.",
+        "You're a real go-getter.",
+        "But are you also stressed out?",
+        "You get irritated when your friends don't show up on time.",
+        "You get frustrated when things don't turn out the way you expect.",
+        "Maybe you jab the elevator button if the elevator is slow to arrive.",
+        "...Maybe you're already jabbing the ► Button repeatedly now.",
+        "Beware--getting too easily irritated just isn't good for your well-being.",
+        "A hasty person like you should be...",
+        "The Pokémon %s!"
+    ],
+    "Calm":
+    [
+        "You appear to be... The calm type.",
+        "You're capable of giving advice to friends with worries.",
+        "You don't like to fight.",
+        "You're a warm, kindhearted person who cares.",
+        "You must have many friends who look up to you.",
+        "However... You may also be somewhat gullible...",
+        "As well as a little careless...",
+        "And even a little sloppy.",
+        "You might want to keep those points in mind.",
+        "A calm person like you should be...",
+        "The Pokémon %s!"
+    ]
+}

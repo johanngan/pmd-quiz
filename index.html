@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="UsernameFodder">
+        <meta name="description" content="Play the Mystery Dungeon personality quiz in its full glory.">
+        <title>Pokémon Mystery Dungeon Personality Quiz</title>
+        <link rel="stylesheet" type="text/css" href="styles/fonts.css">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+    </head>
+    <body>
+        <header>
+	       <h1>Pokémon Mystery Dungeon Personality Quiz</h1> 
+        </header>
+
+        <main>
+            <div class="menu-bar">
+                <div class="nav-buttons">
+                    <button id="previous">◄</button>
+                    <button id="next">►</button>
+                    <button id="restart">Restart</button>
+                </div>
+                <div class="progress">0/0</div>
+            </div>
+            <div class="dialog-box">
+                <h2 class="question">Question</h2>
+            </div>
+
+            <ul class="answer-list">
+                <li class="answer-box" id="a">A</li>
+                <li class="answer-box" id="b">B</li>
+                <li class="answer-box" id="c">C</li>
+                <li class="answer-box" id="d">D</li>
+            </ul>
+        </main>
+
+        <footer>
+            <p class="copyright">©2018 by UsernameFodder</p>
+        </footer>
+
+        <script src="scripts/Presenter.js"></script>
+        <script src="scripts/helpers.js"></script>
+        <script src="scripts/scores.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

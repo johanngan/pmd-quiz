@@ -1,0 +1,63 @@
+You seem to be...the hardy type! And you're so determined![P] You don't whine or feel sorry for yourself, and you never need help with anything. You also have a strong sense of responsibility.[P] You work toward your goals steadily and never require attention along the way.[P] Your resilient spirit is the only thing you need to guide you toward your goals.[P] But be careful! You risk wearing yourself out if you work too long all on your own![P] You should recognize that sometimes you need help from friends.[P] So, a hardy, determined type like you...[P]
+[R][CN]Will be a [CS:K]Torchic[CR]![W:60]
+[R][CN]Will be a [CS:K]Treecko[CR]![W:60]
+
+You seem to be...the docile type! You're quite sensitive to others![P] You listen attentively and respectfully, and you're quick to pick up on things.[P] Because you're so good at listening, do you find that your friends tell you their problems and concerns often?[P] Perhaps people laugh at you sometimes for being so earnest and not recognizing jokes for what they are.[P] But you're always honestly surprised and bashful about this aspect of yourself... And then honestly laugh about it![P] So, a docile, sensitive type like you...[P]
+[R][CN]Will be a [CS:K]Charmander[CR]![W:60]
+[R][CN]Will be a [CS:K]Bulbasaur[CR]![W:60]
+
+You seem to be...the brave type![P] You don't know the meaning of fear! You're not afraid to keep moving forward in the face of danger.[P] You also have a strong sense of justice and can't turn a blind eye to someone in trouble.[P] But you sometimes push your own personal sense of justice a little too hard. Be careful that you don't get too pushy![P] So, a brave type like you...[P]
+[R][CN]Will be a [CS:K]Pikachu[CR]![W:60]
+[R][CN]Will be a [CS:K]Charmander[CR]![W:60]
+
+You seem to be...the jolly type![P] You have a good sense of humor, and you're compassionate. You're always making others around you laugh.[P] You have a sunny, positive outlook, and you have a vitality that raises the lowest of spirits to giddy heights![P] Yet, for all your great cheer, you're also open to tears...[P] But you bounce between laughter and tears so easily! What an adventure life must be like for you, bouncing around like that all day![P] So, a jolly type like you...[P]
+[R][CN]Will be a [CS:K]Totodile[CR]![W:60]
+[R][CN]Will be a [CS:K]Munchlax[CR]![W:60]
+
+You seem to be...the impish type![P] You really like to play a lot! And you enjoy eating a lot![P] You love competition, but you hate losing.[P] Your personality seems crystal clear to others. With you, what you see is what you get! You cheer others with your dazzling smile.[P] But you may be afraid of showing what's in your heart and revealing your true self.[P] You may not want to keep your worries to yourself. You're only human, so ask your friends for advice when you need it.[P] So, an impish type like you...[P]
+[R][CN]Will be a [CS:K]Piplup[CR]![W:60]
+[R][CN]Will be a [CS:K]Chimchar[CR]![W:60]
+
+You seem to be...the naive type! You're so open and innocent![P] What a strong sense of curiosity you have! And you state your opinions purely, sharing exactly what you think.[P] You also have an artistic spirit that isn't restrained by social conventions! You startle people with your spontaneity and vision.[P] But when you overdo it, other people can have a hard time keeping up with you...[P] Have you noticed people looking at you oddly? As if for no apparent reason?[P] So, a naive, innocent type like you...[P]
+[R][CN]Will be a [CS:K]Chimchar[CR]![W:60]
+[R][CN]Will be a [CS:K]Skitty[CR]![W:60]
+
+You seem to be...the timid type. You're quite gentle![P] You're sometimes a little shy about new things, aren't you?[P] Do you miss out on some experiences because you get worried about the newness of the challenge?[P] Of course, there's also a great benefit in being cautious, isn't there?[P] After all, it keeps you nice and safe! You live life at your own speed, with no hurries and no worries![P] So, a timid and gentle type like you...[P]
+[R][CN]Will be a [CS:K]Cyndaquil[CR]![W:60]
+[R][CN]Will be a [CS:K]Turtwig[CR]![W:60]
+
+You seem to be...the hasty type![P] You talk quickly! You eat quickly! You walk quickly![P] People often see you as a hard worker because you're always moving around so fast![P] But be careful! If you always rush so fast, you may make mistakes more often than others do. And what a waste that would be![P] Relax every now and then with a nice, deep breath![P] So, a hasty type like you...[P]
+[R][CN]Will be a [CS:K]Skitty[CR]![W:60]
+[R][CN]Will be a [CS:K]Pikachu[CR]![W:60]
+
+You seem to be...the sassy type! Or at least somewhat sassy![P] You don't like taking orders. You're a little rebellious and like to disagree.[P] You're a lone wolf! You like to keep your distance from groups and go off to do things on your own.[P] Older folks may be the ones who find you the most disagreeable, even selfish.[P] But people younger than you tend to really admire you![P] So, a sassy type like you...[P]
+[R][CN]Will be a [CS:K]Meowth[CR]![W:60]
+[R][CN]Will be a [CS:K]Totodile[CR]![W:60]
+
+You seem to be...the calm type![P] You're very compassionate and considerate, and you put friends ahead of yourself.[P] You're so generous and kindhearted that you can laugh, forgive, and forget when your friends make mistakes.[P] But be aware that your compassion can sometimes get the best of you, putting you too far behind everyone else![P] So, a calm type like you...[P]
+[R][CN]Will be a [CS:K]Chikorita[CR]![W:60]
+[R][CN]Will be a [CS:K]Cyndaquil[CR]![W:60]
+
+You seem to be...the relaxed type![P] You're so casual, leisurely, and carefree. You don't rush or stress yourself out, and you don't worry about anything.[P] You like to take a seat and kick up your feet! Oh, yes! You definitely have an easygoing personality, and you don't sweat the details.[P] People naturally flock to you because they find you to be a free spirit, which is so refreshing![P] So, a relaxed type like you...[P]
+[R][CN]Will be a [CS:K]Munchlax[CR]![W:60]
+[R][CN]Will be a [CS:K]Meowth[CR]![W:60]
+
+You seem to be...the lonely type, at least a little bit![P] You might find that surprising, but do you think it might be a little true?[P] You know what they say, though... We're all a bit lonely every now and then![P] You probably keep this fact of life to yourself, though.[P] But if there's one thing that brings us all together...it's our need to go it solo![P] So, a lonely and solitary type like you...[P]
+[R][CN]Will be a [CS:K]Bulbasaur[CR]![W:60]
+[R][CN]Will be a [CS:K]Mudkip[CR]![W:60]
+
+You seem to be...the quirky type![P] You want to be on the cutting edge of fashion! You want to own all the latest stuff, right?[P] But you grow bored of your old things and only like new things![P] You're true to your emotions, and you follow your desires.[P] People have a hard time keeping up with you because you change so quickly.[P] You may want to reflect upon how your words and actions affect others.[P] So, a quirky type like you...[P]
+[R][CN]Will be a [CS:K]Squirtle[CR]![W:60]
+[R][CN]Will be a [CS:K]Piplup[CR]![W:60]
+
+You seem to be...the quiet type! And very calm![P] You're great with numbers, and you analyze information before making decisions.[P] You rarely make mistakes, because you make decisions so calmly and rationally.[P] You also may find it hard to guess what others are thinking, and they may find you a touch cold at times.[P] You may not want to keep your feelings to yourself so much of the time.[P] So, a quiet and calm type like you...[P]
+[R][CN]Will be a [CS:K]Treecko[CR]![W:60]
+[R][CN]Will be a [CS:K]Chikorita[CR]![W:60]
+
+You seem to be...the rash type, just a little bit hasty at times![P] You may run out of your house and forget to lock the door once in a while.[P] And you may leave things like umbrellas behind when you leave places.[P] Maybe you even dash outside in your slippers every now and then![P] Perhaps you even wear your shirts inside out all the time![P] Oh, is that even rasher than you really are? So sorry![P] But know that your friends think your funny little flubs are adorable![P] So, a rash and hasty type like you... Oh, wait! One more thing![P] You also sometimes reveal your friends' secrets by accident, don't you! Sorry. It had to be said![P] So, without further ado...a rash and hasty type like you...[P]
+[R][CN]Will be a [CS:K]Mudkip[CR]![W:60]
+[R][CN]Will be a [CS:K]Torchic[CR]![W:60]
+
+You seem to be...the bold type![P] You're so brave, and you never back down from anything! And you're also gutsy and brash in a way that others aren't![P] You're not shy about asking to take home all the leftovers at restaurants, right?[P] If someone's treating you to dinner, you have no problem with ordering lots of good stuff![P] And you aren't fazed by doing things that most others would think twice about doing.[P] Perhaps you don't even notice when others are upset with you![P] You know, you have the potential to become a truly great person...because you'll be the last one standing![P] So, a bold type like you...[P]
+[R][CN]Will be a [CS:K]Turtwig[CR]![W:60]
+[R][CN]Will be a [CS:K]Squirtle[CR]![W:60]

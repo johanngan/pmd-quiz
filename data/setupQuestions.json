@@ -1,0 +1,47 @@
+[
+    {
+        "textValue": "I want questions from...",
+        "answers":
+        [
+            {
+                "textValue": "Pokémon Mystery Dungeon: Red/Blue Rescue Team.",
+                "game": "PMD1"
+            },
+            {
+                "textValue": "Pokémon Mystery Dungeon: Explorers of Time/Darkness.",
+                "game": "PMD2:TD"
+            },
+            {
+                "textValue": "Pokémon Mystery Dungeon: Explorers of Sky.",
+                "game": "PMD2:S"
+            },
+            {
+                "textValue": "All of Pokémon Mystery Dungeon: Explorers.",
+                "game": "PMD2"
+            },
+            {
+                "textValue": "Both Rescue Team and Explorers!",
+                "game": "PMD1+PMD2"
+            }
+        ]
+    },
+
+    {
+        "textValue": "How much time do you have?",
+        "answers":
+        [
+            {
+                "textValue": "I don't have much time. Give me a short quiz. (%s questions)",
+                "lengthValue": 25
+            },
+            {
+                "textValue": "I've got some time. Give me a longer quiz. (%s questions)",
+                "lengthValue": 40
+            },
+            {
+                "textValue": "I've got plenty of time. Give me ALL the questions! (%s questions)",
+                "lengthValue": "all"
+            }
+        ]
+    }
+]

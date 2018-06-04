@@ -1,0 +1,195 @@
+/* Base style */
+html {
+    font-size: 16px;
+    font-family: "Wonder Mail";
+    background-color: #A9DEF3;
+    margin: 1em;
+}
+
+/* Header and footer */
+header h1 {
+    font-size: 5em;
+    text-align: center;
+    margin: 0.5em 0;
+}
+
+footer .copyright {
+    bottom: 0;
+    margin-top: 5em;
+    font-family: revert;
+    font-size: 1.2em;
+    line-height: 2;
+    letter-spacing: 1px;
+    color: blue;
+}
+
+/* Menu bar */
+.menu-bar {
+    height: 1.75em;
+    text-align: center;
+    border-width: 0.5em;
+    border-bottom-width: 0;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+
+.menu-bar .nav-buttons {
+    height: inherit;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-bar .nav-buttons button {
+    font-size: 1.5em;
+    height: inherit;
+    font-family: "Wonder Mail";
+    background-color: inherit;
+    border: inherit;
+    color: inherit;
+    height: inherit;
+    cursor: pointer;
+    float: left;
+}
+
+.menu-bar .nav-buttons button:hover {
+    background-color: rgba(200, 200, 200, 0.4);
+}
+
+.menu-bar .nav-buttons button:active {
+    background-color: #faf721;
+}
+
+.menu-bar .nav-buttons button[class="disabled"] {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  background-color: gray;
+  color: lightgray;
+  opacity: 0.5;
+}
+
+.menu-bar .progress {
+    color: #faf721;
+    font-size: 1.5em;
+    height: inherit;
+    position: relative;
+    bottom: 1.166666666em;
+}
+
+/* Questions */
+
+.dialog-box, .answer-list li, .menu-bar, .nav-button {
+    color: white;
+    background-color: #212421;
+    border-color: #00cc00;
+    border-style: solid;
+}
+
+.dialog-box {
+    border-width: 0.5em;
+    border-top-width: 0.25em;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    min-height: 9em;
+}
+
+.question {
+    font-size: 3em;
+    /*min-height: 3em;*/
+    min-height: inherit;
+    line-height: 1;
+    margin: 0 0.5em;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+/* Answers */
+ .answer-list {
+    list-style-type: none;
+    padding: 0 1em;
+    margin-top: 1.5em;
+}
+
+.answer-list li {
+    font-size: 2em;
+    /*color: white;*/
+    padding: 0.5em;
+    /*background-color: #212421;*/
+    margin: 0.5em 0 0 0;
+    /*border: 0.1em solid #00cc00;*/
+    border-radius: 0.5em;
+    border-width: 0.1em;
+    cursor: pointer;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.answer-list li[class="selected"] {
+    background-color: gray;
+}
+
+.answer-list li:hover {
+    border-color: #faf721;
+}
+
+/* Results */
+.dialog-box img {
+    /*min-height: inherit;*/
+    min-height: 7em;
+    width: auto;
+    float: left;
+    padding: 1em;
+}
+
+.other-starters {
+    margin-top: 0.2em;
+
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    color: white;
+    background-color: #212421;
+    border-color: #00cc00;
+    border-style: solid;
+    border-width: 0.1em;
+    border-radius: 0.25em;
+}
+
+.other-starters img {
+    margin: 0.1em;
+}
+
+.other-starters img:first-child {
+    margin-left: 0.5em;
+}
+
+.table-container {
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.table-container table caption {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.table-container table {
+    text-align: left;
+}
+
+.table-container table td {
+    padding: 0 1em;
+}

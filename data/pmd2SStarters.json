@@ -1,0 +1,82 @@
+{
+    "Docile":
+    {
+        "Male": "Charmander",
+        "Female": "Bulbasaur"
+    },
+    "Hardy":
+    {
+        "Male": "Torchic",
+        "Female": "Treecko"
+    },
+    "Jolly":
+    {
+        "Male": "Totodile",
+        "Female": "Eevee"
+    },
+    "Impish":
+    {
+        "Male": "Piplup",
+        "Female": "Chimchar"
+    },
+    "Quirky":
+    {
+        "Male": "Squirtle",
+        "Female": "Piplup"
+    },
+    "Relaxed":
+    {
+        "Male": "Phanpy",
+        "Female": "Vulpix"
+    },
+    "Brave":
+    {
+        "Male": "Pikachu",
+        "Female": "Charmander"
+    },
+    "Lonely":
+    {
+        "Male": "Bulbasaur",
+        "Female": "Mudkip"
+    },
+    "Timid":
+    {
+        "Male": "Cyndaquil",
+        "Female": "Turtwig"
+    },
+    "Naive":
+    {
+        "Male": "Chimchar",
+        "Female": "Skitty"
+    },
+    "Sassy":
+    {
+        "Male": "Riolu",
+        "Female": "Totodile"
+    },
+    "Hasty":
+    {
+        "Male": "Shinx",
+        "Female": "Pikachu"
+    },
+    "Calm":
+    {
+        "Male": "Chikorita",
+        "Female": "Cyndaquil"
+    },
+    "Quiet":
+    {
+        "Male": "Treecko",
+        "Female": "Chikorita"
+    },
+    "Rash":
+    {
+        "Male": "Mudkip",
+        "Female": "Torchic"
+    },
+    "Bold":
+    {
+        "Male": "Turtwig",
+        "Female": "Squirtle"
+    }
+}

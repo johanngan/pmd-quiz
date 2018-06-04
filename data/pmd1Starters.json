@@ -1,0 +1,67 @@
+{
+    "Docile":
+    {
+        "Male": "Bulbasaur",
+        "Female": "Chikorita"
+    },
+    "Hardy":
+    {
+        "Male": "Charmander",
+        "Female": "Pikachu"
+    },
+    "Jolly":
+    {
+        "Male": "Squirtle",
+        "Female": "Totodile"
+    },
+    "Impish":
+    {
+        "Male": "Pikachu",
+        "Female": "Cubone"
+    },
+    "Quirky":
+    {
+        "Male": "Meowth",
+        "Female": "Treecko"
+    },
+    "Relaxed":
+    {
+        "Male": "Psyduck",
+        "Female": "Squirtle"
+    },
+    "Brave":
+    {
+        "Male": "Machop",
+        "Female": "Charmander"
+    },
+    "Lonely":
+    {
+        "Male": "Cubone",
+        "Female": "Psyduck"
+    },
+    "Timid":
+    {
+        "Male": "Cyndaquil",
+        "Female": "Mudkip"
+    },
+    "Naive":
+    {
+        "Male": "Totodile",
+        "Female": "Eevee"
+    },
+    "Sassy":
+    {
+        "Male": "Treecko",
+        "Female": "Torchic"
+    },
+    "Hasty":
+    {
+        "Male": "Torchic",
+        "Female": "Skitty"
+    },
+    "Calm":
+    {
+        "Male": "Mudkip",
+        "Female": "Bulbasaur"
+    }
+}
