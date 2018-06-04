@@ -296,41 +296,41 @@ var performSetup = function() {
 
         // Decide the game for the purposes of the starter verdict
         var starters;
-        var otherStarters = [];
+        var possibleStarters = [];
         switch(gameSelector.responses[0].game) {
             case 'PMD1':
                 starters = pmd1Starters;
+                possibleStarters.push(pmd1Starters);
                 break;
             case 'PMD2:TD':
                 starters = pmd2TDStarters;
+                possibleStarters.push(pmd2TDStarters);
                 break;
             case 'PMD2:S':
                 starters = pmd2SStarters;
+                possibleStarters.push(pmd2SStarters);
                 break;
             case 'PMD2':
                 if(selectBestGame(natureScoreList[0], ['pmd2TD', 'pmd2S']) === 'pmd2TD') {
                     starters = pmd2TDStarters;
-                    otherStarters.push(pmd2SStarters);
                 } else {
                     starters = pmd2SStarters;
-                    otherStarters.push(pmd2TDStarters);
                 }
+                possibleStarters.push(pmd2TDStarters);
+                possibleStarters.push(pmd2SStarters);
                 break;
             case 'PMD1+PMD2':
                 let bestGame = selectBestGame(natureScoreList[0], ['pmd1', 'pmd2TD', 'pmd2S']);
                 if(bestGame === 'pmd1') {
                     starters = pmd1Starters;
-                    otherStarters.push(pmd2TDStarters);
-                    otherStarters.push(pmd2SStarters);
                 } else if(bestGame === 'pmd2TD') {
                     starters = pmd2TDStarters;
-                    otherStarters.push(pmd1Starters);
-                    otherStarters.push(pmd2SStarters);
                 } else {
                     starters = pmd2SStarters;
-                    otherStarters.push(pmd1Starters);
-                    otherStarters.push(pmd2TDStarters);
                 }
+                possibleStarters.push(pmd1Starters);
+                possibleStarters.push(pmd2TDStarters);
+                possibleStarters.push(pmd2SStarters);
                 break;
             default:
                 console.error('descriptionPresenter.finalize: something went wrong with game selection.');
@@ -366,7 +366,7 @@ var performSetup = function() {
         dialogBox.insertBefore(portrait, dialogBox.firstChild);
 
         // Show other possible starters of the chosen nature
-        if(otherStarters.length > 0) {
+        if(possibleStarters.length > 1 || possibleGenders.length > 1) {
             var includedStarters = [pokemon];
             var othersDisplay = document.createElement('div');
             othersDisplay.classList.add('other-starters');
@@ -386,17 +386,17 @@ var performSetup = function() {
 
             othersDisplay.textContent = 'Other ' + natureScoreList[0].nature + ' starters' + genderSymbol + ': ';
 
-            for(let i = 0; i < otherStarters.length; i++) {
-                if(!otherStarters[i].hasOwnProperty(natureScoreList[0].nature)) {
+            for(let i = 0; i < possibleStarters.length; i++) {
+                if(!possibleStarters[i].hasOwnProperty(natureScoreList[0].nature)) {
                     continue;
                 }
 
                 for(let j = 0; j < possibleGenders.length; j++) {
 
-                    let possibleStarter = otherStarters[i][natureScoreList[0].nature][possibleGenders[j]];
-                    if(!includedStarters.includes(possibleStarter)) {
-                        includedStarters.push(possibleStarter);
-                        othersDisplay.appendChild(createImg(possibleStarter));
+                    let altStarter = possibleStarters[i][natureScoreList[0].nature][possibleGenders[j]];
+                    if(!includedStarters.includes(altStarter)) {
+                        includedStarters.push(altStarter);
+                        othersDisplay.appendChild(createImg(altStarter));
                     }
                 }
             }
