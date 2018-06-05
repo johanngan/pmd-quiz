@@ -68,9 +68,13 @@ var presenterList = [gameSelector, quizLengthSelector, mainPresenter, genderSele
 
 var currentPresenter;   // Will contain the presenter currently presenting questions.
 
-// Array to hold the final nature scores/stats.
-var scoresByGame = [];
-var natureScoreList = [];
+// Variables to hold the final results and display elements. Assigned after the gender question to avoid loading just before
+// the reveal
+var verdictStr;
+var portrait;
+var includedStarters;
+var othersDisplay;
+var tableContainer;
 
 // Warning if leaving while taking the quiz
 window.onload = function() {
@@ -243,9 +247,12 @@ var performSetup = function() {
     genderSelector.addQuestionList(finalQuestions);
     genderSelector.setup = () => { hideArrows(); showRestart(); hideUp(); hideProgress(); };
     genderSelector.finalize = function() {
+        var loadingString = 'Calculating results. Please wait...';
+        descriptionPresenter.presentQuestion(loadingString);
+
         // Calculate scores by nature by game
-        scoresByGame = tallyResults(mainPresenter.questions, mainPresenter.responses);
-        natureScoreList = convertToNatureScoreList(scoresByGame);
+        var scoresByGame = tallyResults(mainPresenter.questions, mainPresenter.responses);
+        var natureScoreList = convertToNatureScoreList(scoresByGame);
 
         console.log(scoresByGame);
         console.log(natureScoreList);
@@ -271,6 +278,7 @@ var performSetup = function() {
                 console.error('genderSelector.finalize: something went wrong with game selection.');
         }
 
+        // Set the border color based on the gender choice
         switch(genderSelector.responses[0].textValue) {
             case 'Male.':
                 setGender('male');
@@ -281,18 +289,10 @@ var performSetup = function() {
         }
 
         descriptionPresenter.clearQuestions();
-        descriptionPresenter.addQuestionList(descriptions[natureScoreList[0].nature]);  // TODO: soft-code the game choice
-        descriptionPresenter.startPresenting();
+        descriptionPresenter.addQuestionList(descriptions[natureScoreList[0].nature]);
 
-        // display results from mainPresenter based on answers of mainPresenter and finalPresenter
-        // also add button prompting user to restart the quiz (different entity than restart button during quiz)
-    }
 
-    descriptionPresenter.setup = () => { showArrows(); enableArrows(); showRestart(); hideUp(); hideProgress(); };
-    descriptionPresenter.finalize = function() {
-        takingQuiz = false;
-        var loadingString = 'Calculating results. Please wait...';
-        descriptionPresenter.presentQuestion(loadingString);
+        /// Front-load all the logic so the results can then be presented without loading ///
 
         // Decide the game for the purposes of the starter verdict
         var starters;
@@ -333,12 +333,12 @@ var performSetup = function() {
                 possibleStarters.push(pmd2SStarters);
                 break;
             default:
-                console.error('descriptionPresenter.finalize: something went wrong with game selection.');
+                console.error('Result calculation: something went wrong with game selection.');
         }
 
         // Decide the gender for the purposes of the starter verdict
         var genderChoice;
-        var possibleGenders;
+        var possibleGenders = [];
         switch(genderSelector.responses[0].textValue) {
             case 'Male.':
                 genderChoice = 'Male';
@@ -353,24 +353,21 @@ var performSetup = function() {
                 genderChoice = randomArrayElement(possibleGenders);
                 break;
             default:
-                console.error('descriptorPresenter.finalize: something went wrong with gender selection.');
+                console.error('Result calculation: something went wrong with gender selection.');
         }
 
         var pokemon = starters[natureScoreList[0].nature][genderChoice];
-        var verdictStr = subsStr(descriptionPresenter.questions[descriptionPresenter.questions.length-1], pokemon);
+        verdictStr = subsStr(descriptionPresenter.questions[descriptionPresenter.questions.length-1], pokemon);
         // Hard-coded case for the rare tie resulting in PMD2 descriptions with an Eevee starter.
         verdictStr = verdictStr.replace('a Eevee', 'an Eevee');
-        descriptionPresenter.presentQuestion(verdictStr);
-        disableArrows();
 
-        // Show the portrait of the chosen starter
-        var portrait = createImg(pokemon + '-big');
-        dialogBox.insertBefore(portrait, dialogBox.firstChild);
+        // Prepare the portrait of the chosen starter
+        portrait = createImg(pokemon + '-big');
 
-        // Show other possible starters of the chosen nature
+        // Prepare to show other possible starters of the chosen nature/gender
+        includedStarters = [pokemon];
         if(possibleStarters.length > 1 || possibleGenders.length > 1) {
-            var includedStarters = [pokemon];
-            var othersDisplay = document.createElement('div');
+            othersDisplay = document.createElement('div');
             othersDisplay.classList.add('other-starters');
             othersDisplay.classList.add('colorable');
             othersDisplay.classList.add('result');
@@ -402,14 +399,10 @@ var performSetup = function() {
                     }
                 }
             }
-            
-            if(includedStarters.length > 1) {
-                main.insertBefore(othersDisplay, document.querySelector('.answer-list'));
-            }
         }
 
-        // Show a detailed points breakdown
-        var tableContainer = document.createElement('div');
+        // Prepare to show a detailed points breakdown
+        tableContainer = document.createElement('div');
         tableContainer.classList.add('table-container');
         tableContainer.classList.add('result');
 
@@ -437,6 +430,162 @@ var performSetup = function() {
         }
 
         tableContainer.appendChild(pointsTable)
+
+        // Start presenting the results
+        descriptionPresenter.startPresenting();
+    }
+
+    descriptionPresenter.setup = () => { showArrows(); enableArrows(); showRestart(); hideUp(); hideProgress(); };
+    descriptionPresenter.finalize = function() {
+        takingQuiz = false;
+
+        // // Decide the game for the purposes of the starter verdict
+        // var starters;
+        // var possibleStarters = [];
+        // switch(gameSelector.responses[0].game) {
+        //     case 'PMD1':
+        //         starters = pmd1Starters;
+        //         possibleStarters.push(pmd1Starters);
+        //         break;
+        //     case 'PMD2:TD':
+        //         starters = pmd2TDStarters;
+        //         possibleStarters.push(pmd2TDStarters);
+        //         break;
+        //     case 'PMD2:S':
+        //         starters = pmd2SStarters;
+        //         possibleStarters.push(pmd2SStarters);
+        //         break;
+        //     case 'PMD2':
+        //         if(selectBestGame(natureScoreList[0], ['pmd2TD', 'pmd2S']) === 'pmd2TD') {
+        //             starters = pmd2TDStarters;
+        //         } else {
+        //             starters = pmd2SStarters;
+        //         }
+        //         possibleStarters.push(pmd2TDStarters);
+        //         possibleStarters.push(pmd2SStarters);
+        //         break;
+        //     case 'PMD1+PMD2':
+        //         let bestGame = selectBestGame(natureScoreList[0], ['pmd1', 'pmd2TD', 'pmd2S']);
+        //         if(bestGame === 'pmd1') {
+        //             starters = pmd1Starters;
+        //         } else if(bestGame === 'pmd2TD') {
+        //             starters = pmd2TDStarters;
+        //         } else {
+        //             starters = pmd2SStarters;
+        //         }
+        //         possibleStarters.push(pmd1Starters);
+        //         possibleStarters.push(pmd2TDStarters);
+        //         possibleStarters.push(pmd2SStarters);
+        //         break;
+        //     default:
+        //         console.error('descriptionPresenter.finalize: something went wrong with game selection.');
+        // }
+
+        // // Decide the gender for the purposes of the starter verdict
+        // var genderChoice;
+        // var possibleGenders;
+        // switch(genderSelector.responses[0].textValue) {
+        //     case 'Male.':
+        //         genderChoice = 'Male';
+        //         possibleGenders = ['Male'];
+        //         break;
+        //     case 'Female.':
+        //         genderChoice = 'Female';
+        //         possibleGenders = ['Female'];
+        //         break;
+        //     case 'Neither.':
+        //         possibleGenders = ['Male', 'Female'];
+        //         genderChoice = randomArrayElement(possibleGenders);
+        //         break;
+        //     default:
+        //         console.error('descriptorPresenter.finalize: something went wrong with gender selection.');
+        // }
+
+        // var pokemon = starters[natureScoreList[0].nature][genderChoice];
+        // var verdictStr = subsStr(descriptionPresenter.questions[descriptionPresenter.questions.length-1], pokemon);
+        // // Hard-coded case for the rare tie resulting in PMD2 descriptions with an Eevee starter.
+        // verdictStr = verdictStr.replace('a Eevee', 'an Eevee');
+        descriptionPresenter.presentQuestion(verdictStr);
+        disableArrows();
+
+        // // Show the portrait of the chosen starter
+        // var portrait = createImg(pokemon + '-big');
+        dialogBox.insertBefore(portrait, dialogBox.firstChild);
+
+        // // Show other possible starters of the chosen nature
+        // if(possibleStarters.length > 1 || possibleGenders.length > 1) {
+        //     var includedStarters = [pokemon];
+        //     var othersDisplay = document.createElement('div');
+        //     othersDisplay.classList.add('other-starters');
+        //     othersDisplay.classList.add('colorable');
+        //     othersDisplay.classList.add('result');
+
+        //     let genderSymbol = '';
+        //     if(possibleGenders.length === 1) {
+        //         if(genderChoice === 'Male') {
+        //             genderSymbol = ' (♂) ';
+        //             othersDisplay.setAttribute('gender', 'male');
+        //         } else {
+        //             genderSymbol = ' (♀) ';
+        //             othersDisplay.setAttribute('gender', 'female');
+        //         }
+        //     }
+
+        //     othersDisplay.textContent = 'Other ' + natureScoreList[0].nature + ' starters' + genderSymbol + ': ';
+
+        //     for(let i = 0; i < possibleStarters.length; i++) {
+        //         if(!possibleStarters[i].hasOwnProperty(natureScoreList[0].nature)) {
+        //             continue;
+        //         }
+
+        //         for(let j = 0; j < possibleGenders.length; j++) {
+
+        //             let altStarter = possibleStarters[i][natureScoreList[0].nature][possibleGenders[j]];
+        //             if(!includedStarters.includes(altStarter)) {
+        //                 includedStarters.push(altStarter);
+        //                 othersDisplay.appendChild(createImg(altStarter));
+        //             }
+        //         }
+        //     }
+            
+        //     if(includedStarters.length > 1) {
+        //         main.insertBefore(othersDisplay, document.querySelector('.answer-list'));
+        //     }
+        // }
+
+        if(includedStarters.length > 1) {
+            main.insertBefore(othersDisplay, document.querySelector('.answer-list'));
+        }
+
+        // // Show a detailed points breakdown
+        // var tableContainer = document.createElement('div');
+        // tableContainer.classList.add('table-container');
+        // tableContainer.classList.add('result');
+
+        // var pointsTable = document.createElement('table');
+
+        // var tableTitle = document.createElement('caption');
+        // tableTitle.textContent = 'Detailed Points Breakdown';
+        // pointsTable.appendChild(tableTitle);
+
+        // for(let n = 0; n < natureScoreList.length; n++) {
+        //     let row = document.createElement('tr');
+        //     let natureCol = document.createElement('td');
+        //     natureCol.textContent = natureScoreList[n].nature;
+        //     row.appendChild(natureCol);
+
+        //     let pointsCol = document.createElement('td');
+        //     let natureScore = scoresByGame.all[natureScoreList[n].nature];
+        //     pointsCol.textContent = natureScore.userPoints + '/' + natureScore.totalPoints + ' points possible';
+        //     if(pointsCol.textContent[0] === '1') {
+        //         pointsCol.style.paddingLeft = '0.9em';  // Hard coded correction for the space in front of "1" in the Wonder Mail font 
+        //     }
+        //     row.appendChild(pointsCol);
+
+        //     pointsTable.appendChild(row);
+        // }
+
+        // tableContainer.appendChild(pointsTable)
         main.appendChild(tableContainer);
     }
 }
