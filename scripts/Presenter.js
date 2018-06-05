@@ -4,12 +4,24 @@ var answerList = document.querySelector('.answer-list');
 var menuBar = document.querySelector('.menu-bar');
 var progress = document.querySelector('.progress');
 
-// Navigation control buttons
+// Synthesize navigation control buttons
 var navButtons = document.querySelector('.nav-buttons');
-var previousButton = document.querySelector('#previous');
-var nextButton = document.querySelector('#next');
-var restartButton = document.querySelector('#restart');
-var upButton = document.querySelector('#up');
+
+var previousButton = document.createElement('button');
+previousButton.id = 'previous';
+previousButton.textContent = '◄';
+
+var nextButton = document.createElement('button');
+nextButton.id = 'next';
+nextButton.textContent = '►';
+
+var restartButton = document.createElement('button');
+restartButton.id = 'restart';
+restartButton.textContent = 'Restart';
+
+var upButton = document.createElement('button');
+upButton.id = 'up';
+upButton.textContent = '⇧';
 
 // Flag set to true during the main quiz
 var takingQuiz = false;
