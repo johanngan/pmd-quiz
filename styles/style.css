@@ -50,6 +50,13 @@ footer .copyright {
     cursor: pointer;
     float: left;
 }
+#previous, #next {
+    font-family: "Times New Roman";
+    margin: 0;
+}
+#restart {
+    margin-left: 0.1em;
+}
 
 .menu-bar .nav-buttons button:hover {
     background-color: rgba(200, 200, 200, 0.4);
@@ -105,10 +112,6 @@ main [gender="female"] {
     min-height: inherit;
     line-height: 1;
     margin: 0 0.5em;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
 }
 
 /* Answers */
@@ -161,10 +164,6 @@ main [gender="female"] {
     margin-top: 0.2em;
 
     font-size: 2em;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
 
     border-width: 0.1em;
     border-radius: 0.25em;
@@ -180,10 +179,6 @@ main [gender="female"] {
 
 .table-container {
     font-size: 2em;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
 }
 
 .table-container table caption {
@@ -197,4 +192,12 @@ main [gender="female"] {
 
 .table-container table td {
     padding: 0 1em;
+}
+
+/* Centering stuff */
+.menu-bar .progress, .question, .other-starters, .table-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
