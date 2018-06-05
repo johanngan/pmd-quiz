@@ -171,11 +171,9 @@ var performSetup = function() {
                 mainQuestions = pmd2SQuestions;
                 break;
             case 'PMD2':
-                // mainQuestions = pmd2TDQuestions.concat(pmd2SQuestions); // Write something to merge these without repeats
                 mainQuestions = concatQuestionLists(pmd2TDQuestions, pmd2SQuestions);
                 break;
             case 'PMD1+PMD2':
-                // mainQuestions = pmd1Questions.concat(pmd2TDQuestions).concat(pmd2SQuestions); // Write something to merge these without repeats
                 mainQuestions = concatQuestionLists(concatQuestionLists(pmd1Questions, pmd2TDQuestions), pmd2SQuestions);
                 break;
             default:
@@ -253,9 +251,6 @@ var performSetup = function() {
         // Calculate scores by nature by game
         var scoresByGame = tallyResults(mainPresenter.questions, mainPresenter.responses);
         var natureScoreList = convertToNatureScoreList(scoresByGame);
-
-        console.log(scoresByGame);
-        console.log(natureScoreList);
 
         var descriptions;
         switch(gameSelector.responses[0].game) {
@@ -439,153 +434,18 @@ var performSetup = function() {
     descriptionPresenter.finalize = function() {
         takingQuiz = false;
 
-        // // Decide the game for the purposes of the starter verdict
-        // var starters;
-        // var possibleStarters = [];
-        // switch(gameSelector.responses[0].game) {
-        //     case 'PMD1':
-        //         starters = pmd1Starters;
-        //         possibleStarters.push(pmd1Starters);
-        //         break;
-        //     case 'PMD2:TD':
-        //         starters = pmd2TDStarters;
-        //         possibleStarters.push(pmd2TDStarters);
-        //         break;
-        //     case 'PMD2:S':
-        //         starters = pmd2SStarters;
-        //         possibleStarters.push(pmd2SStarters);
-        //         break;
-        //     case 'PMD2':
-        //         if(selectBestGame(natureScoreList[0], ['pmd2TD', 'pmd2S']) === 'pmd2TD') {
-        //             starters = pmd2TDStarters;
-        //         } else {
-        //             starters = pmd2SStarters;
-        //         }
-        //         possibleStarters.push(pmd2TDStarters);
-        //         possibleStarters.push(pmd2SStarters);
-        //         break;
-        //     case 'PMD1+PMD2':
-        //         let bestGame = selectBestGame(natureScoreList[0], ['pmd1', 'pmd2TD', 'pmd2S']);
-        //         if(bestGame === 'pmd1') {
-        //             starters = pmd1Starters;
-        //         } else if(bestGame === 'pmd2TD') {
-        //             starters = pmd2TDStarters;
-        //         } else {
-        //             starters = pmd2SStarters;
-        //         }
-        //         possibleStarters.push(pmd1Starters);
-        //         possibleStarters.push(pmd2TDStarters);
-        //         possibleStarters.push(pmd2SStarters);
-        //         break;
-        //     default:
-        //         console.error('descriptionPresenter.finalize: something went wrong with game selection.');
-        // }
-
-        // // Decide the gender for the purposes of the starter verdict
-        // var genderChoice;
-        // var possibleGenders;
-        // switch(genderSelector.responses[0].textValue) {
-        //     case 'Male.':
-        //         genderChoice = 'Male';
-        //         possibleGenders = ['Male'];
-        //         break;
-        //     case 'Female.':
-        //         genderChoice = 'Female';
-        //         possibleGenders = ['Female'];
-        //         break;
-        //     case 'Neither.':
-        //         possibleGenders = ['Male', 'Female'];
-        //         genderChoice = randomArrayElement(possibleGenders);
-        //         break;
-        //     default:
-        //         console.error('descriptorPresenter.finalize: something went wrong with gender selection.');
-        // }
-
-        // var pokemon = starters[natureScoreList[0].nature][genderChoice];
-        // var verdictStr = subsStr(descriptionPresenter.questions[descriptionPresenter.questions.length-1], pokemon);
-        // // Hard-coded case for the rare tie resulting in PMD2 descriptions with an Eevee starter.
-        // verdictStr = verdictStr.replace('a Eevee', 'an Eevee');
         descriptionPresenter.presentQuestion(verdictStr);
         disableArrows();
 
-        // // Show the portrait of the chosen starter
-        // var portrait = createImg(pokemon + '-big');
+        // Show the portrait of the chosen starter
         dialogBox.insertBefore(portrait, dialogBox.firstChild);
 
-        // // Show other possible starters of the chosen nature
-        // if(possibleStarters.length > 1 || possibleGenders.length > 1) {
-        //     var includedStarters = [pokemon];
-        //     var othersDisplay = document.createElement('div');
-        //     othersDisplay.classList.add('other-starters');
-        //     othersDisplay.classList.add('colorable');
-        //     othersDisplay.classList.add('result');
-
-        //     let genderSymbol = '';
-        //     if(possibleGenders.length === 1) {
-        //         if(genderChoice === 'Male') {
-        //             genderSymbol = ' (♂) ';
-        //             othersDisplay.setAttribute('gender', 'male');
-        //         } else {
-        //             genderSymbol = ' (♀) ';
-        //             othersDisplay.setAttribute('gender', 'female');
-        //         }
-        //     }
-
-        //     othersDisplay.textContent = 'Other ' + natureScoreList[0].nature + ' starters' + genderSymbol + ': ';
-
-        //     for(let i = 0; i < possibleStarters.length; i++) {
-        //         if(!possibleStarters[i].hasOwnProperty(natureScoreList[0].nature)) {
-        //             continue;
-        //         }
-
-        //         for(let j = 0; j < possibleGenders.length; j++) {
-
-        //             let altStarter = possibleStarters[i][natureScoreList[0].nature][possibleGenders[j]];
-        //             if(!includedStarters.includes(altStarter)) {
-        //                 includedStarters.push(altStarter);
-        //                 othersDisplay.appendChild(createImg(altStarter));
-        //             }
-        //         }
-        //     }
-            
-        //     if(includedStarters.length > 1) {
-        //         main.insertBefore(othersDisplay, document.querySelector('.answer-list'));
-        //     }
-        // }
-
+        // Show other starters
         if(includedStarters.length > 1) {
             main.insertBefore(othersDisplay, document.querySelector('.answer-list'));
         }
 
-        // // Show a detailed points breakdown
-        // var tableContainer = document.createElement('div');
-        // tableContainer.classList.add('table-container');
-        // tableContainer.classList.add('result');
-
-        // var pointsTable = document.createElement('table');
-
-        // var tableTitle = document.createElement('caption');
-        // tableTitle.textContent = 'Detailed Points Breakdown';
-        // pointsTable.appendChild(tableTitle);
-
-        // for(let n = 0; n < natureScoreList.length; n++) {
-        //     let row = document.createElement('tr');
-        //     let natureCol = document.createElement('td');
-        //     natureCol.textContent = natureScoreList[n].nature;
-        //     row.appendChild(natureCol);
-
-        //     let pointsCol = document.createElement('td');
-        //     let natureScore = scoresByGame.all[natureScoreList[n].nature];
-        //     pointsCol.textContent = natureScore.userPoints + '/' + natureScore.totalPoints + ' points possible';
-        //     if(pointsCol.textContent[0] === '1') {
-        //         pointsCol.style.paddingLeft = '0.9em';  // Hard coded correction for the space in front of "1" in the Wonder Mail font 
-        //     }
-        //     row.appendChild(pointsCol);
-
-        //     pointsTable.appendChild(row);
-        // }
-
-        // tableContainer.appendChild(pointsTable)
+        // Show the breakdown
         main.appendChild(tableContainer);
     }
 }

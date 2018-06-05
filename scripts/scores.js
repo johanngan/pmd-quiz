@@ -113,7 +113,7 @@ function convertToNatureScoreList(scoresByGame) {
     return natureScoreList;
 }
 
-// Calculates the Wilson 95% binomial confidence interval lower bound
+// Calculates the Wilson 95% binomial proportion confidence interval lower bound
 function wilsonLowerBound(points, total) {
     const z = 1.959964; // 0.025 z-quantile
     var phat = points / total;

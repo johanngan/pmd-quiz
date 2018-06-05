@@ -351,8 +351,6 @@ Presenter.prototype.presentQuestion = function(question, response=null, subQuest
         } else {
             handler = function(e) {
                 var responseID = Number(e.target.id);
-                // 1. lock the list elements from further interaction??? TODO
-                // 2. record the answer
                 _this.responses[_this.currentQuestion] = question.answers[responseID];
                 // Add to the subquestion answer list if in subquestion-land. If not, Make sure the list is empty.
                 if(subQuestionLevel > 0) {
@@ -361,14 +359,10 @@ Presenter.prototype.presentQuestion = function(question, response=null, subQuest
                 } else {
                     _this.subQuestionResponses[_this.currentQuestion] = [];
                 }
-                // // 3. Perform custom handling -- UNNEEDED?
-                // question.handleResponse(e.target.id);
-                // 4. Set this question as answered
                 var unansweredIndex = _this.unanswered.indexOf(_this.currentQuestion);
                 if(unansweredIndex !== -1) {
                     _this.unanswered.splice(unansweredIndex, 1);
                 }
-                // 5. present the next question
                 _this.presentQuestionAtIndex(_this.nextUnansweredQuestion());
             }
         }
