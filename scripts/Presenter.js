@@ -9,11 +9,11 @@ var navButtons = document.querySelector('.nav-buttons');
 
 var previousButton = document.createElement('button');
 previousButton.id = 'previous';
-previousButton.textContent = '◄';
+previousButton.innerHTML = '<span class="arrow">◄</span>Prev';
 
 var nextButton = document.createElement('button');
 nextButton.id = 'next';
-nextButton.textContent = '►';
+nextButton.innerHTML = 'Next<span class="arrow">►</span>';
 
 var restartButton = document.createElement('button');
 restartButton.id = 'restart';

@@ -25,7 +25,7 @@ footer .copyright {
 
 /* Menu bar */
 .menu-bar {
-    height: 1.75em;
+    height: 2em;
     text-align: center;
     border-width: 0.5em;
     border-bottom-width: 0;
@@ -37,10 +37,11 @@ footer .copyright {
     height: inherit;
     position: relative;
     z-index: 1;
+    max-width: 45%;
 }
 
 .menu-bar .nav-buttons button {
-    font-size: 1.5em;
+    font-size: 2em;
     height: inherit;
     font-family: "Wonder Mail";
     background-color: inherit;
@@ -49,13 +50,29 @@ footer .copyright {
     height: inherit;
     cursor: pointer;
     float: left;
+    line-height: 1;
+    margin: 0;
+    padding: 0 0.3em;
 }
-#previous, #next {
+#previous {
+    padding-left: 0.1em;
+}
+#next {
+    padding-right: 0.1em;
+}
+#previous > .arrow, #next > .arrow {
     font-family: "Times New Roman";
     margin: 0;
 }
-#restart {
-    margin-left: 0.1em;
+#previous > .arrow {
+    padding-right: 0.1em;
+}
+#next > .arrow {
+    padding-left: 0.1em;
+}
+#up {
+    font-size: 1.5em;
+    padding-top: 0.3em;
 }
 
 .menu-bar .nav-buttons button:hover {
@@ -80,7 +97,7 @@ footer .copyright {
     font-size: 1.5em;
     height: inherit;
     position: relative;
-    bottom: 1.166666666em;
+    bottom: 1.33333333em;
 }
 
 /* Questions */
@@ -195,7 +212,7 @@ main [gender="female"] {
 }
 
 /* Centering stuff */
-.menu-bar .progress, .question, .other-starters, .table-container {
+.menu-bar .nav-buttons button, .menu-bar .progress, .question, .other-starters, .table-container {
     display: flex;
     justify-content: center;
     text-align: center;
