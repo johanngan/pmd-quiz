@@ -231,7 +231,7 @@ PurePresenter.prototype.reset = function() {
 // Presenter class definition/implementation
 function Presenter() {
     PurePresenter.call(this);
-    this.cyclicPresentation = true; // If true, the "next" button on the last question will wrap to the first, and vice versa.
+    this.cyclicPresentation = false; // If true, the "next" button on the last question will wrap to the first, and vice versa.
 
     this.subQuestionLevel = 0;
     this.responses = [];        // List of answer objects corresponding to the response the user chose for each question
@@ -258,6 +258,19 @@ Presenter.prototype.clearQuestions = function() {
     this.responses = [];
     this.subQuestionResponses = [];
     this.unanswered = [];
+}
+
+// Splices off questions from index and returns the spliced responses only
+Presenter.prototype.spliceResponses = function(index) {
+    this.questions.splice(index);
+    this.subQuestionResponses.splice(index);
+    var toRemove = this.unanswered.findIndex(element => element >= index);
+    while(toRemove !== -1) {
+        this.unanswered.splice(toRemove, 1);
+        toRemove = this.unanswered.findIndex(element => element >= index);
+    }
+
+    return this.responses.splice(index);
 }
 
 Presenter.prototype.presentQuestionAtIndex = function(index, subQuestionLevel=0) {

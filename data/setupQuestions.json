@@ -36,11 +36,11 @@
             },
             {
                 "textValue": "I have a little time. Give me a moderate-length quiz. (%s questions)",
-                "lengthValue": 20
+                "lengthValue": 19
             },
             {
                 "textValue": "I've got some time. Give me a longer quiz. (%s questions)",
-                "lengthValue": 40
+                "lengthValue": 39
             },
             {
                 "textValue": "I've got plenty of time. Give me ALL the questions! (%s questions)",

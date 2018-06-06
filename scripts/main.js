@@ -203,7 +203,7 @@ var performSetup = function() {
 
             quizLengthSelector.questions[0].answers[i].textValue = subsStr(
                 quizLengthSelector.questions[0].answers[i].textValue,
-                quizLengthSelector.questions[0].answers[i].lengthValue);
+                quizLengthSelector.questions[0].answers[i].lengthValue + finalQuestions.length);
         }
 
         quizLengthSelector.startPresenting();
@@ -224,6 +224,9 @@ var performSetup = function() {
             mainPresenter.addQuestion(mainQuestions[available[randI]]);
             available.splice(randI, 1);
         }
+        for(let i = 0; i < finalQuestions.length; i++) {
+            mainPresenter.addQuestion(finalQuestions[i]);
+        }
 
         mainPresenter.startPresenting();
     }
@@ -237,17 +240,17 @@ var performSetup = function() {
         hideUp();
         showProgress();
     }
-    mainPresenter.finalize = function() {
-        genderSelector.startPresenting();
-    }
 
     genderSelector.clearQuestions();
     genderSelector.addQuestionList(finalQuestions);
-    genderSelector.setup = () => { hideArrows(); showRestart(); hideUp(); hideProgress(); };
-    genderSelector.finalize = function() {
+    mainPresenter.finalize = function() {
         var loadingString = 'Calculating results. Please wait...';
         descriptionPresenter.presentQuestion(loadingString);
 
+        genderSelector.responses = mainPresenter.spliceResponses(mainPresenter.questions.length - finalQuestions.length);
+        genderSelector.finalize();  // Legacy presenter... doesn't actually present
+    }
+    genderSelector.finalize = function() {
         // Calculate scores by nature by game
         var scoresByGame = tallyResults(mainPresenter.questions, mainPresenter.responses);
         var natureScoreList = convertToNatureScoreList(scoresByGame);
