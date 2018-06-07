@@ -1,6 +1,11 @@
 @font-face {
     font-family: 'Wonder Mail';
-    src: url('fonts/wonder_mail/wondermail.ttf') format('truetype');
+    src: url('fonts/wonder_mail/wondermail.eot');   /* IE9 Compat Modes */
+    src: url('fonts/wonder_mail/wondermail.eot?#iefix') format('embedded-opentype'),   /* IE6-IE8 */
+         url('fonts/wonder_mail/wondermail.woff2') format('woff2'),
+         url('fonts/wonder_mail/wondermail.woff') format('woff'),
+         url('fonts/wonder_mail/wondermail.ttf') format('truetype'),
+         url('fonts/wonder_mail/wondermail.svg#wondermail') format('svg');  /* Legacy iOS */
     font-weight: normal;
     font-style: normal;
 }
