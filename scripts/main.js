@@ -1,5 +1,6 @@
 var dialogBox = document.querySelector('.dialog-box')
 var main = document.querySelector('main');
+var answerList = document.querySelector('.answer-list');
 
 // Read in the data
 var setupQuestions;
@@ -95,6 +96,9 @@ window.onload = function() {
 var restartQuiz = function() {
     clearResults();
     unsetGender();
+    if(!document.querySelector('.answer-list')) {
+        main.appendChild(answerList);
+    }
     takingQuiz = false;
 
     for(let i = 0; i < presenterList.length; i++) {
@@ -403,6 +407,7 @@ var performSetup = function() {
         tableContainer = document.createElement('div');
         tableContainer.classList.add('table-container');
         tableContainer.classList.add('result');
+        tableContainer.style.marginTop = '1em';
 
         var pointsTable = document.createElement('table');
 
@@ -439,13 +444,15 @@ var performSetup = function() {
 
         descriptionPresenter.presentQuestion(verdictStr);
         disableArrows();
+        answerList.parentNode.removeChild(answerList);
 
         // Show the portrait of the chosen starter
         dialogBox.insertBefore(portrait, dialogBox.firstChild);
 
         // Show other starters
         if(includedStarters.length > 1) {
-            main.insertBefore(othersDisplay, document.querySelector('.answer-list'));
+            // main.insertBefore(othersDisplay, answerList);
+            main.appendChild(othersDisplay);
         }
 
         // Show the breakdown

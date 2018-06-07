@@ -5,22 +5,51 @@ html {
     background-color: #A9DEF3;
     margin: 1em;
 }
+html, body {
+    height: 100%;
+}
 
-/* Header and footer */
+/* Header, body, and footer */
 header h1 {
     font-size: 5em;
     text-align: center;
     margin: 0.5em 0;
 }
 
-footer .copyright {
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer span {
+    flex-shrink: 0;
     bottom: 0;
     margin-top: 5em;
-    font-family: revert;
-    font-size: 1.2em;
+    font-size: 1.5em;
     line-height: 2;
+}
+
+footer .copyright {
+    font-size: 1em;
+    font-family: revert;
     letter-spacing: 1px;
     color: blue;
+}
+
+footer span a {
+    margin-left: 1em;
+    float: right;
+}
+
+footer span .here {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
 }
 
 /* Menu bar */
@@ -136,6 +165,7 @@ main [gender="female"] {
     list-style-type: none;
     padding: 0 1em;
     margin-top: 1.5em;
+    min-height: 30em;
 }
 
 .answer-list li {
