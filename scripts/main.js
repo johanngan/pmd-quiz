@@ -259,6 +259,29 @@ var performSetup = function() {
         var scoresByGame = tallyResults(mainPresenter.questions, mainPresenter.responses);
         var natureScoreList = convertToNatureScoreList(scoresByGame);
 
+        // Randomize the top natures if there are ties
+        var topIndices = [0];
+        var topScore = natureScoreList[0].score_all;
+        for(let i = 1; i < natureScoreList.length; i++) {
+            if(natureScoreList[i].score_all == topScore) {
+                topIndices.push(i);
+            } else {
+                break;
+            }
+        }
+        if(topIndices.length > 1) {
+            var topNatures = [];
+            var nTop = topIndices.length;
+            for(let i = 0; i < nTop; i++) {
+                let nextIndex = randomArrayElement(topIndices);
+                topIndices.pop();
+                topNatures.push(natureScoreList[nextIndex]);
+                natureScoreList.splice(nextIndex, 1);
+            }
+            natureScoreList = topNatures.concat(natureScoreList);
+        }
+
+
         var descriptions;
         switch(gameSelector.responses[0].game) {
             case 'PMD1':

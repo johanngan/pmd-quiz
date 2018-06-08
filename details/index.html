@@ -19,27 +19,28 @@
             <ul>
                 <li>Quiz questions are randomly selected from the pool of questions specified by the user during setup.</li>
                 <li>Questions that appear in more than one game are presented at most once.</li>
-                <li>Quiz questions are presented in a random order, except for the "gender question," which always appears last.</li>
+                <li>Questions are presented in a random order, except for the "gender question," which always appears last.</li>
             </ul>
 
             <h2>Scoring</h2>
             <ul>
-                <li>In this quiz, response point values from Pokémon Mystery Dungeon: Explorers of Time/Darkness are halved from their original values for the purposes of scoring to make their magnitudes more commensurate with those from the other games.</li>
-                <li>Unlike the original games, which used raw point totals for scoring, this quiz performs scoring using the lower bound on a <a href="https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval">95% Wilson binomial proportion confidence interval</a>, where proportions for each nature are calculated as the number of points scored divided by the hypothetical maximum number of points possible.
+                <li>If you are unfamiliar with how the quizzes from the original games work, <a href="http://pokemon.wikia.com/wiki/Starter_Pok%C3%A9mon_(Mystery_Dungeon)">see this article</a>.
+                <li>In this quiz, response point values from Pokémon Mystery Dungeon: Explorers of Time/Darkness are halved from their original values for the purposes of scoring. This is to make their magnitudes more commensurate with those from the other games.</li>
+                <li>Unlike the original games, which use raw point totals for scoring, this quiz performs scoring using the lower bound of a <a href="https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval">95% Wilson binomial proportion confidence interval</a>, where proportions for each nature are calculated as the number of points scored divided by the hypothetical maximum number of points possible.
                     <ul>
-                        <li>The scoring scheme balances rewarding a high proportion of total points scored with the uncertainty of having a low sample size (i.e. a small total number of points possible).</li>
+                        <li>The scoring scheme balances rewarding a high proportion of points scored with the uncertainty of having a low sample size (i.e. a small total number of points possible).</li>
                         <li>The scoring scheme is the same one used by <a href="https://redditblog.com/2009/10/15/reddits-new-comment-sorting-system/">Reddit's "Best" comment sorting mode</a>.</li>
                     </ul>
                 </li>
-                <li>Scoring is performed multiple times; once over all quiz question, and once for each individual game (using only points derived from questions from each particular game). The "all" score is used for deciding nature, while the "game" scores are used for determining nature descriptions (see next section).
+                <li>Scoring is performed multiple times; once over all quiz questions, and once for each individual game (using only points derived from questions from each particular game). The "all" score is used for deciding nature, while the "game" scores are used for determining nature descriptions (see next section).
             </ul>
 
             <h2>Results and Starter Assignment</h2>
             <ol>
-                <li>The nature with the highest "all" score (see above section) is the nature presented to the user. Ties are broken randomly (actually undefined, to be technical; determined by the results of an unstable sort).</li>
-                <li>After the nature has been decided, the "game" scores for the chosen nature are compared, and the user is "assigned a game" corresponding to the highest "game" score. Ties are broken randomly. The assigned game is used to determine the description of the nature and the actual assignment of starter Pokémon.</li>
+                <li>The nature with the highest "all" score (see above section) is the nature presented to the user. Ties are broken randomly.</li>
+                <li>After the nature has been decided, the "game" scores for the chosen nature are compared, and the user is assigned a game corresponding to the highest "game" score. Ties are broken randomly. The assigned game is used to determine the description of the nature and the actual assignment of starter Pokémon species.</li>
                 <li>The starter Pokémon assignment also depends on the user's chosen gender. If "neither" was chosen, a gender is selected randomly for the purposes of assignment.</li>
-                <li>The "other starters" result appears if different starters would have been assigned using different "available" games and/or genders.
+                <li>The "other starters" result appears if different starters would have been assigned using different available games and/or genders.
                     <ul>
                         <li>Available genders are either male, female, or both in the case of a "neither" gender response.</li>
                         <li>Available games are based on the question sources chosen during setup.</li>
@@ -48,8 +49,17 @@
                 <li>Natures in the detailed points breakdown are listed in descending order of "all" scores.</li>
             </ol>
 
+            <h2>Modifications from the Source</h2>
+            <p>All text was kept as close as possible to that of the original games, but minor modifications were made in a very limited number of cases.
+                <ul>
+                    <li>A "neither" option was added to the final "gender question" of the quiz.</li>
+                    <li>The Hasty nature's description from PMD: Rescue Team was changed to reference the "Next" button rather than the "A" button.</li>
+                    <li>Certain questions from PMD: Explorers of Sky are almost identical to questions from PMD: Explorers of Time/Darkness, up to minor phrasing differences. This quiz keeps phrasing consistent between games. Which of the two variants were used in the quiz varies by question, depending on which I liked better.</li>
+                </ul>
+            </p>
+
             <h2>Pokémon Super Mystery Dungeon</h2>
-                <p>Pokémon Super Mystery Dungeon also has a personality quiz. Unfortunately, it has a completely different method of selecting the starter that isn't at all tied to natures. Due to the incompatibility, questions from Pokémon Super Mystery Dungeon were not included in this quiz.
+                <p>Pokémon Super Mystery Dungeon also has a personality quiz. Unfortunately, it has a different method of selecting the starter that is not directly tied to natures. Due to the incompatibility, questions from Pokémon Super Mystery Dungeon were not included in this quiz.
                 </p>
             </li>
         </main>
