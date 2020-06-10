@@ -1,7 +1,7 @@
 /* Base style */
 html {
     font-size: 16px;
-    font-family: "Wonder Mail";
+    font-family: "Wonder Mail Modified";
     background-color: #A9DEF3;
     margin: 1em;
 }
@@ -72,7 +72,7 @@ footer span .here {
 .menu-bar .nav-buttons button {
     font-size: 2em;
     height: inherit;
-    font-family: "Wonder Mail";
+    font-family: inherit;
     background-color: inherit;
     border: inherit;
     color: inherit;
