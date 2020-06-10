@@ -228,17 +228,25 @@ main [gender="female"] {
     font-size: 2em;
 }
 
+.table-container table {
+    width: 13em;
+}
+
 .table-container table caption {
     font-size: 1.5em;
     font-weight: bold;
 }
 
-.table-container table {
-    text-align: left;
-}
-
 .table-container table td {
     padding: 0 1em;
+}
+
+.table-container table td:first-child {
+    text-align: right;
+}
+
+.table-container table td:last-child {
+    text-align: left;
 }
 
 /* Centering stuff */
