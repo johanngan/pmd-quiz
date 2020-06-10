@@ -16,9 +16,11 @@ header h1 {
     margin: 0.5em 0;
 }
 
-body {
+#content-box {
     display: flex;
     flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 main {
