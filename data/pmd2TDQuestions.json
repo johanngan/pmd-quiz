@@ -75,7 +75,7 @@
         "answers":
         [
             {
-                "textValue": "Yes!",
+                "textValue": "Yes.",
                 "points":
                 {
                     "Jolly": 4,
@@ -97,7 +97,7 @@
         "answers":
         [
             {
-                "textValue": "Yes!",
+                "textValue": "Yes.",
                 "points":
                 {
                     "Hasty": 4
@@ -177,11 +177,11 @@
         ]
     },
     {
-        "textValue": "Do you get bothered by noise and ruckus around you?",
+        "textValue": "You don't get bothered by noise and ruckus nearby, do you?",
         "answers":
         [
             {
-                "textValue": "Yes!",
+                "textValue": "Yes.",
                 "points":
                 {
                     "Bold": 4,
@@ -189,7 +189,7 @@
                 }
             },
             {
-                "textValue": "Not at all.",
+                "textValue": "Not at all!",
                 "points":
                 {
                     "Lonely": 4,
@@ -203,7 +203,7 @@
         "answers":
         [
             {
-                "textValue": "Yes!",
+                "textValue": "Yes.",
                 "points":
                 {
                     "Impish": 4,
@@ -278,7 +278,7 @@
                 "points":
                 {
                     "Quirky": 4,
-                    "Rash": 2
+                    "Rash": 4
                 }
             },
             {
@@ -316,7 +316,7 @@
         "answers":
         [
             {
-                "textValue": "Yes!",
+                "textValue": "Yes.",
                 "points":
                 {
                     "Brave": 4,
@@ -335,7 +335,7 @@
                 "textValue": "It depends on the situation.",
                 "points":
                 {
-                    "Calm": 2,
+                    "Quiet": 2,
                     "Quirky": 2
                 }
             }
@@ -438,7 +438,7 @@
         "answers":
         [
             {
-                "textValue": "Yes!",
+                "textValue": "Yes.",
                 "points":
                 {
                     "Naive": 4,
@@ -459,7 +459,7 @@
         "answers":
         [
             {
-                "textValue": "Yes!",
+                "textValue": "Yes.",
                 "points":
                 {
                     "Naive": 4
@@ -662,7 +662,7 @@
                 "textValue": "Spend half, save half.",
                 "points":
                 {
-                    "Calm": 2
+                    "Quiet": 2
                 }
             },
             {
@@ -719,7 +719,7 @@
         ]
     },
     {
-        "textValue": "Would you even consider sticking to a plan to do ten sit-ups a day?",
+        "textValue": "Would you ever consider sticking to a plan to do ten sit-ups a day?",
         "answers":
         [
             {
@@ -979,7 +979,7 @@
                 }
             },
             {
-                "textValue": "Find out what it is.",
+                "textValue": "Find out what it is!",
                 "points":
                 {
                     "Naive": 4,
@@ -1139,7 +1139,7 @@
         "answers":
         [
             {
-                "textValue": "Yes!",
+                "textValue": "Yes.",
                 "points":
                 {
                     "Jolly": 4,
@@ -1150,7 +1150,7 @@
                 "textValue": "No.",
                 "points":
                 {
-                    "Calm": 2
+                    "Quiet": 2
                 }
             }
         ]
@@ -1202,7 +1202,7 @@
                 }
             },
             {
-                "textValue": "Yum! I love dessert the most!",
+                "textValue": "Yum! I love dessert the most! ♪",
                 "points":
                 {
                     "Bold": 4,
@@ -1264,7 +1264,7 @@
                 "points":
                 {
                     "Bold": 4,
-                    "Sassy": 2
+                    "Sassy": 4
                 }
             }
         ]
@@ -1503,7 +1503,7 @@
                 "points":
                 {
                     "Jolly": 4,
-                    "Calm": 2
+                    "Quiet": 2
                 }
             },
             {
@@ -1657,7 +1657,7 @@
                 }
             },
             {
-                "textValue": "Slap my head and groan.",
+                "textValue": "Slap my forehead and groan.",
                 "points":
                 {
                     "Brave": 4

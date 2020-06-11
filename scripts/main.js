@@ -24,7 +24,7 @@ const pmd1QuestionsLoaded = loadJSON('data/pmd1Questions.json').then(
         pmd1Questions = result;
         tagQuestions(pmd1Questions, 'PMD1');
     }, displayError);
-// Divide all T/D point values by 2 to be more commensurate in magnitude with the other two games' point values.
+// Divide all T/D point values by 2 to be more commensurate in magnitude with RT's point values.
 const pmd2TDQuestionsLoaded = loadJSON('data/pmd2TDQuestions.json').then(
     result => {
         pmd2TDQuestions = result;
@@ -32,11 +32,13 @@ const pmd2TDQuestionsLoaded = loadJSON('data/pmd2TDQuestions.json').then(
         tagQuestions(pmd2TDQuestions, 'Time/Darkness');
         dividePoints(pmd2TDQuestions, 2);
     }, displayError);
+// Divide all Sky point values by 2 to be more commensurate in magnitude with RT's point values.
 const pmd2SQuestionsLoaded = loadJSON('data/pmd2SQuestions.json').then(
     result => {
         pmd2SQuestions = result;
         tagQuestions(pmd2SQuestions, 'PMD2');
         tagQuestions(pmd2SQuestions, 'Sky');
+        dividePoints(pmd2SQuestions, 2);
     }, displayError);
 const finalQuestionsLoaded = loadJSON('data/finalQuestions.json').then(result => {finalQuestions = result;}, displayError);
 const pmd1DescriptionsLoaded = loadJSON('data/pmd1Descriptions.json').then(result => {pmd1Descriptions = result;}, displayError);
