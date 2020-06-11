@@ -2,7 +2,6 @@
     font-family: 'Wonder Mail Modified';
     src: url('fonts/wonder_mail_modified/wondermail-modified.woff2') format('woff2'),
          url('fonts/wonder_mail_modified/wondermail-modified.woff') format('woff'),
-         url('fonts/wonder_mail_modified/wondermail-modified.ttf') format('truetype'),
          url('fonts/wonder_mail_modified/wondermail-modified.svg#wondermail-modified') format('svg');  /* Legacy iOS */
     font-weight: normal;
     font-style: normal;
