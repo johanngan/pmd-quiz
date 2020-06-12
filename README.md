@@ -5,7 +5,7 @@
 A website where you can take Pokémon Mystery Dungeon personality quizzes. Questions come from Red/Blue Rescue Team, Explorers of Time/Darkness, and Explorers of Sky.
 
 # At a Glance
-### Complete the Light-Hearted Personality Quizzes from Pokémon Mystery Dungeon!
+### Complete the light-hearted personality quiz from Pokémon Mystery Dungeon!
 ![Sample question](samples/question.png)
 ### Which Pokémon are you?
 ![Sample result](samples/result.png)
@@ -18,7 +18,7 @@ These are some highlighted details on how the quiz works. The full details are l
 * If the selected pool of questions draws on multiple games, repeat questions are excluded.
 
 ## Scoring
-* Scoring is done using the lower bound on a 95% Wilson binomial confidence interval (like [Reddit comment Best sorting](https://redditblog.com/2009/10/15/reddits-new-comment-sorting-system/), based (for each nature) on the ratio between the number of points the user scored and the maximum number of points the user hypothetically could have scored.
+* Scoring is done using the lower bound on a 95% Wilson binomial confidence interval (like [Reddit comment Best sorting](https://redditblog.com/2009/10/15/reddits-new-comment-sorting-system/)), based (for each nature) on the ratio between the number of points the user scored and the maximum number of points the user hypothetically could have scored.
 * Scoring is done over all the quiz questions, as well as over subsets of the quiz questions that come from each game.
 * Personality points from *Explorers* are halved to line up better with *Rescue Team* in magnitude.
 
