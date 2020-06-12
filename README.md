@@ -1,6 +1,6 @@
 # Pokémon Mystery Dungeon Personality Quiz
 
-[Hosted here!](http://pmdquiz.atwebpages.com/)
+[**Website hosted here!**](http://pmdquiz.atwebpages.com/)
 
 A website where you can take Pokémon Mystery Dungeon personality quizzes. Questions come from Red/Blue Rescue Team, Explorers of Time/Darkness, and Explorers of Sky.
 
