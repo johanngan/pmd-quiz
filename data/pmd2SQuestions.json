@@ -492,7 +492,7 @@
                 "points":
                 {
                     "Rash": 4,
-                    "Bold": 4
+                    "Bold": 2
                 }
             },
             {
@@ -825,8 +825,8 @@
                 "textValue": "Nothing, really.",
                 "points":
                 {
-                    "Docile": 4,
-                    "Rash": 4
+                    "Brave": 4,
+                    "Bold": 2
                 }
             },
             {
